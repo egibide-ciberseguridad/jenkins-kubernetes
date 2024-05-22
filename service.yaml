@@ -25,9 +25,13 @@ kind: Ingress
 metadata:
   name: jenkins-ingress
   namespace: devops-tools
+  annotations:
+    ingress.class: haproxy
 spec:
+  ingressClassName: haproxy
   rules:
-    - http:
+    - host: ciber-01-jenkins.arriaga.eu
+      http:
         paths:
           - path: /
             pathType: Prefix
