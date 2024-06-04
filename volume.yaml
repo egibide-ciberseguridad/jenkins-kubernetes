@@ -5,7 +5,7 @@ metadata:
   name: jenkins-pv-claim
   namespace: devops-tools
 spec:
-  storageClassName: rook-cephfs
+  storageClassName: rook-ceph-block
   accessModes:
     - ReadWriteOnce
   resources:
