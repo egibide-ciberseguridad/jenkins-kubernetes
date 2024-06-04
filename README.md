@@ -1,42 +1,20 @@
-# Kubernetes Manifests for Jenkins Deployment
+# Jenkins en Kubernetes
 
-Refer https://devopscube.com/setup-jenkins-on-kubernetes-cluster/ for step by step process to use these manifests.
+Desplegar automáticamente un servidor Jenkins en Kubernetes.
 
-## Puesta en marcha del Jenkins
-
-```
-kubectl apply -f https://raw.githubusercontent.com/egibide-ciberseguridad/kubernetes-jenkins/main/namespace.yaml
-kubectl apply -f https://raw.githubusercontent.com/egibide-ciberseguridad/kubernetes-jenkins/main/serviceAccount.yaml
-kubectl apply -f https://raw.githubusercontent.com/egibide-ciberseguridad/kubernetes-jenkins/main/deployment.yaml
-kubectl apply -f https://raw.githubusercontent.com/egibide-ciberseguridad/kubernetes-jenkins/main/volume.yaml
-kubectl apply -f https://raw.githubusercontent.com/egibide-ciberseguridad/kubernetes-jenkins/main/service.yaml
-```
-
-## Certificado SSL con Let’s Encrypt
-
-1. Nombre de dominio apuntando a la IP pública del HAProxy.
-
-   https://demo-05.ciber-egibide.eu
-
-2. Instalar el cert-manager:
-
-    ```
-    kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.11.0/cert-manager.yaml
-    ```
-
-3. [Crear el issuer de Let's Encrypt y configurar el Ingress para que lo use](service-tls.yaml).
-
-## Depuración
-
-Para ver [qué ocurre con la petición](https://cert-manager.io/docs/troubleshooting/acme/#3-troubleshooting-challenges):
+## Puesta en marcha
 
 ```
-kubectl -n devops-tools get challenges
-kubectl -n devops-tools describe challenge mysite-cert-rbln6-23257799-3404331767
+kubectl apply -f https://raw.githubusercontent.com/egibide-ciberseguridad/jenkins-kubernetes/main/namespace.yaml
+kubectl apply -f https://raw.githubusercontent.com/egibide-ciberseguridad/jenkins-kubernetes/main/serviceAccount.yaml
+kubectl apply -f https://raw.githubusercontent.com/egibide-ciberseguridad/jenkins-kubernetes/main/deployment.yaml
+kubectl apply -f https://raw.githubusercontent.com/egibide-ciberseguridad/jenkins-kubernetes/main/volume.yaml
+kubectl apply -f https://raw.githubusercontent.com/egibide-ciberseguridad/jenkins-kubernetes/main/service.yaml
 ```
 
 ## Referencias
 
+- [Tutorial original](https://devopscube.com/setup-jenkins-on-kubernetes-cluster/)
 - [Setup Jenkins On Kubernetes](https://www.jenkins.io/doc/book/installing/kubernetes/)
 - [Use HAProxy Kubernetes Ingress Controller to terminate SSL / TLS](https://www.haproxy.com/documentation/kubernetes/latest/usage/terminate-ssl/)
 - [Enable TLS with Let’s Encrypt and the HAProxy Kubernetes Ingress Controller](https://www.haproxy.com/blog/enable-tls-with-lets-encrypt-and-the-haproxy-kubernetes-ingress-controller/)
@@ -48,3 +26,4 @@ kubectl -n devops-tools describe challenge mysite-cert-rbln6-23257799-3404331767
 - [hairpin-proxy](https://github.com/compumike/hairpin-proxy)
 - [Rate Limits](https://letsencrypt.org/docs/rate-limits/)
 - [Staging Environment](https://letsencrypt.org/docs/staging-environment/)
+- [Rook Storage Architecture](https://rook.io/docs/rook/latest-release/Getting-Started/storage-architecture/)
