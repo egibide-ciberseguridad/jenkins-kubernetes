@@ -12,6 +12,18 @@ kubectl apply -f https://raw.githubusercontent.com/egibide-ciberseguridad/jenkin
 kubectl apply -f https://raw.githubusercontent.com/egibide-ciberseguridad/jenkins-kubernetes/main/service.yaml
 ```
 
+## Obtener el token de acceso inicial
+
+```
+kubectl -n devops-tools exec deployment/jenkins -- cat /var/jenkins_home/secrets/initialAdminPassword
+```
+
+## Borrar todo el despliegue
+
+```
+kubectl delete namespace devops-tools
+```
+
 ## Referencias
 
 - [Tutorial original](https://devopscube.com/setup-jenkins-on-kubernetes-cluster/)
