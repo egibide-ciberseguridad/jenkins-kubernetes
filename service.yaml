@@ -19,22 +19,3 @@ spec:
       port: 8080
       protocol: TCP
       targetPort: 8080
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: jenkins-ingress
-  namespace: devops-tools
-spec:
-  ingressClassName: haproxy
-  rules:
-    - host: ciber-99-jenkins.arriaga.eu
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: jenkins-service
-                port:
-                  number: 8080

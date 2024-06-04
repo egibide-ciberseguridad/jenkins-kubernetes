@@ -10,6 +10,7 @@ kubectl apply -f https://raw.githubusercontent.com/egibide-ciberseguridad/jenkin
 kubectl apply -f https://raw.githubusercontent.com/egibide-ciberseguridad/jenkins-kubernetes/main/deployment.yaml
 kubectl apply -f https://raw.githubusercontent.com/egibide-ciberseguridad/jenkins-kubernetes/main/volume.yaml
 kubectl apply -f https://raw.githubusercontent.com/egibide-ciberseguridad/jenkins-kubernetes/main/service.yaml
+kubectl apply -f https://raw.githubusercontent.com/egibide-ciberseguridad/jenkins-kubernetes/main/ingress.yaml
 ```
 
 ## Obtener el token de acceso inicial
