@@ -6,11 +6,11 @@ Desplegar automáticamente un servidor Jenkins en Kubernetes.
 
 ```
 kubectl apply -f https://raw.githubusercontent.com/egibide-ciberseguridad/jenkins-kubernetes/main/namespace.yaml
-kubectl apply -f https://raw.githubusercontent.com/egibide-ciberseguridad/jenkins-kubernetes/main/serviceAccount.yaml
-kubectl apply -f https://raw.githubusercontent.com/egibide-ciberseguridad/jenkins-kubernetes/main/deployment.yaml
-kubectl apply -f https://raw.githubusercontent.com/egibide-ciberseguridad/jenkins-kubernetes/main/volume.yaml
-kubectl apply -f https://raw.githubusercontent.com/egibide-ciberseguridad/jenkins-kubernetes/main/service.yaml
-kubectl apply -f https://raw.githubusercontent.com/egibide-ciberseguridad/jenkins-kubernetes/main/ingress.yaml
+kubectl apply -n devops-tools -f https://raw.githubusercontent.com/egibide-ciberseguridad/jenkins-kubernetes/main/serviceAccount.yaml
+kubectl apply -n devops-tools -f https://raw.githubusercontent.com/egibide-ciberseguridad/jenkins-kubernetes/main/deployment.yaml
+kubectl apply -n devops-tools -f https://raw.githubusercontent.com/egibide-ciberseguridad/jenkins-kubernetes/main/volume.yaml
+kubectl apply -n devops-tools -f https://raw.githubusercontent.com/egibide-ciberseguridad/jenkins-kubernetes/main/service.yaml
+kubectl apply -n devops-tools -f https://raw.githubusercontent.com/egibide-ciberseguridad/jenkins-kubernetes/main/ingress.yaml
 ```
 
 ## Obtener el token de acceso inicial
